@@ -33,7 +33,7 @@ namespace Shadowsocks.Controller
                     String.IsNullOrEmpty(config.proxyUserAgent) ?
                     "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.3319.102 Safari/537.36"
                     : config.proxyUserAgent);
-                http.QueryString["rnd"] = Util.Utils.RandUInt32().ToString();
+                //http.QueryString["rnd"] = Util.Utils.RandUInt32().ToString();
                 if (use_proxy)
                 {
                     WebProxy proxy = new WebProxy(IPAddress.Loopback.ToString(), config.localPort);
