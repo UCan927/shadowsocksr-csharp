@@ -783,7 +783,7 @@ namespace Shadowsocks.Controller
 
                 if (!reconnect)
                 {
-                    Logging.Info($"Disconnect {cfg.targetHost}:{cfg.targetPort.ToString()}");
+                    Logging.Info($"Disconnect {cfg.targetHost}:{cfg.targetPort}");
                     CloseSocket(ref connection);
                     CloseSocket(ref connectionUDP);
                     Logging.Debug($"Transfer {cfg.targetHost}:{cfg.targetPort.ToString() + speedTester.TransferLog()}");
@@ -872,7 +872,7 @@ namespace Shadowsocks.Controller
                 }
             }
             speedTester.server = server.server;
-            Logging.Info($"Connect {cfg.targetHost}:{cfg.targetPort.ToString()} via {server.server}:{server.server_port}");
+            Logging.Info($"Connect {cfg.targetHost}:{cfg.targetPort} via {server.server}:{server.server_port}");
 
             ResetTimeout(cfg.TTL);
             if (cfg.targetHost != null)
@@ -895,7 +895,7 @@ namespace Shadowsocks.Controller
                             ipAddress = Utils.QueryDns(host, null);
                         }
                     }
-                    Logging.Info($"DNS nolock query {host} answer {ipAddress.ToString()}");
+                    Logging.Info($"DNS nolock query {host} answer {ipAddress}");
                     if (ipAddress != null)
                     {
                         Utils.DnsBuffer.Set(host, new IPAddress(ipAddress.GetAddressBytes()));
