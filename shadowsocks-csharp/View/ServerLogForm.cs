@@ -102,6 +102,8 @@ namespace Shadowsocks.View
                     this.topmostItem = CreateMenuItem("Always On &Top", new EventHandler(this.topmostItem_Click)),
                 }),
             });
+            topmostItem.Checked = !topmostItem.Checked;
+            this.TopMost = topmostItem.Checked;
             controller.ConfigChanged += controller_ConfigChanged;
 
             for (int i = 0; i < ServerDataGrid.Columns.Count; ++i)
